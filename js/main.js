@@ -52,12 +52,7 @@ const aUsers = departmentUsers(users, ["A"]);
 console.table(bcUsers);
 
 // 3. parasyti funkcija kuri sugeneruoja htmle nuotrauku galerija is uzer paveikleliu, su username pavadinimu
-// {
-//   /* <figure>
-//       <img src="pic_trulli.jpg" alt="Trulli">
-//       <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
-//     </figure> */
-// }
+
 // 3.1 parasyti funkcija kuri gavusi toki objekta
 const u1 = {
   id: 3,
@@ -80,12 +75,12 @@ const u1 = {
 // ir gamina korteles su auksciau aprasyta funkcija (3.1)
 
 // 4. parasyti funkcija kuriai paduodam id ir ji grazina objekta kurio id sutampa su duotu. jei toks nerandamas tai grazina
-{
-  found: false;
-  msg: "user not found";
-}
-function findById() {}
-findById(100);
+// {
+//   found: false;
+//   msg: "user not found";
+// }
+// function findById() {}
+// findById(100);
 
 // 5. Parasyti funkcija kuriai paduodam username ir password.
 // 5.1 jei pasword ir username sutampa tai iskonsolinam loggin success
@@ -97,8 +92,20 @@ function makeImg(userObj) {
   imgEl.className = "user-img";
   imgEl.src = `img/${userObj.avatar}`;
   imgEl.alt = `Image of ${userObj.username}`;
-  document.body.append(imgEl);
+  imgEl.style.width = "30%";
+  imgEl.style.margin = "0.5rem";
+  //_________________________________//
+  const figureEl = document.createElement("figure");
+  const usernameEl = document.createElement("input");
+  const passwordEl = document.createElement("input");
+  const buttonEl = document.createElement("button");
+  buttonEl.textContent = "Login";
+  const figCaptionEl = document.createElement("figcaption");
+  figCaptionEl.textContent = `Image of ${users.username}`;
+  figureEl.append(imgEl, figCaptionEl, usernameEl, passwordEl, buttonEl);
+  document.body.append(figureEl);
 }
 
 makeImg(users[0]);
 makeImg(users[1]);
+makeImg(users[2]);
