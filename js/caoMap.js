@@ -56,14 +56,14 @@ const data = [
 function males() {
   return data.filter((dataObj) => dataObj.gender === "Male").length;
 }
-console.log(`Vyrai ===`, males());
+console.log(`Vyrai === ${males()}`);
 
 //2. Sukurkite masyvą, kuriuose būtų id visų žmonių, kurie turi automobilius naujesnius nei 2000 metai.
 
 function newCars() {
   return data.filter((dataObj) => dataObj.car_year > 2000).map((dataObj) => dataObj.id);
 }
-console.table(`id zmoniu su naujesnem nei 2000 metu masina ${newCars()}`);
+console.table("people with cars over 2000", newCars());
 
 //3. Sukurkite masyvą visų žmonių, kurių marškinių dydžiai XS arba S; ir surūšiuokite šį masyvą pagal vardus, A-Z tvarka (alfabetiškai).
 
